@@ -75,7 +75,19 @@ class controller(object):
             isOk = False
         return isOk
 
+    def SerialInput(self, cod=""):
+        try:
+            # print(self.CODE_SEND.encode('utf-8'))
+            # print(self.serial_ports())
+            # print(serial.tools.list_ports.comports())
+            # ser = serial.Serial('COM4', 9600, timeout=1)
+            # ser.write(self.CODE_SEND.encode('utf-8')) 
+            # ser.close() 
+            pass
+        except Exception :
+            pass
 
+        pass
 
     ### All the response of every code in controller.json file ###
     def getresponse(self, cod=""):
@@ -84,13 +96,7 @@ class controller(object):
             if self.validate():
                 cod = self.CODE_SEND
                 output = self.OutputGood(message="Data is accepted")
-                # print(self.CODE_SEND.encode('utf-8'))
-                # print(self.serial_ports())
-                # print(serial.tools.list_ports.comports())
-                # ser = serial.Serial('COM4', 9600, timeout=1)
-                # ser.write(self.CODE_SEND.encode('utf-8')) 
-                # ser.close() 
-
+                self.SerialInput()
             
             else:
                 output = self.OutputError(message="Not find data into "+self.CURRENT_DIR + '/cntrl.json')

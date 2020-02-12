@@ -85,10 +85,10 @@ class MyControllerServer:
                                 break
 
                             self.LOGGER.info(data)
-                            print(data)
-                            print(data.decode("utf-8"))
+                            #print(data)
+                            #print(data.decode("utf-8"))
                             response = controller( data.decode("utf-8") )
-                            print(response.RESPONSE)
+                            #print(response.RESPONSE)
                             conn.sendall(response.RESPONSE.encode('utf-8'))
             pass
 
