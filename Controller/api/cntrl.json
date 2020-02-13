@@ -70,6 +70,10 @@
     "j" : {
         "send_code" : "j",
         "description" : "  Speed "
+    },
+    "1" : {
+        "send_code" : "1",
+        "description" : "  Speed "
     }
     
 }

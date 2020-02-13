@@ -31,16 +31,18 @@ print(type(sendData.encode('utf-8')))
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((HOST, PORT))
-    for x in range(1):
-        g = input ("Enter your name : ") 
+    for x in range(100000):
+        # g = input ("Enter your name : ") 
 
         seconds = time.time() 
         # sendData = jsonToString
-        sendData = g
+        # sendData = g
+        sendData = "w"
         s.sendall(sendData.encode('utf-8'))
         data = s.recv(2048)
         seconds = time.time() - seconds 
         print(seconds)
+        # time.sleep(1)
         pass
 
 print('Received', repr(data))

@@ -78,14 +78,16 @@ class controller(object):
             isOk = False
         return isOk
 
-    def SerialInput(self, cod=""):
+    def SerialInput(self):
         try:
             # print(self.CODE_SEND.encode('utf-8'))
-            # print(self.serial_ports())
-            # print(serial.tools.list_ports.comports())
-            # ser = serial.Serial('COM4', 9600, timeout=1)
-            # ser.write(self.CODE_SEND.encode('utf-8')) 
-            # ser.close() 
+            ports = self.serial_ports()
+            ser = serial.Serial(ports[0], 9600, timeout=1)
+            ser.write(self.CODE_SEND.encode('utf-8')) 
+            # arduinoData = ser.readline()
+            # print(arduinoData)
+            # time.sleep(1)   
+            ser.close() 
             pass
         except Exception :
             pass
@@ -153,10 +155,10 @@ if __name__ == "__main__":
     while running:
         later = time.time()
         difference = int(later - last_input)
-        print(difference)
+        # print(difference)
         if difference > 10:
             response = controller("b")
-            print(response.RESPONSE)
+            # print(response.RESPONSE)
             last_input = time.time()
             pass
         
@@ -165,9 +167,9 @@ if __name__ == "__main__":
             if event.type == pygame.QUIT:
                 running = False
             if event.type == pygame.KEYDOWN:
+                last_input =  time.time()
                 value = chr(event.key)
                 response = controller(value)
                 print(response.RESPONSE)
                
-                    
     pass
