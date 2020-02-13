@@ -3,6 +3,9 @@ import os ,sys
 import glob
 import logging
 import serial
+import pygame
+import time
+
 import serial.tools.list_ports
 
 class controller(object):
@@ -116,6 +119,7 @@ class controller(object):
         data = {
             "result": {
                 "status": "error",
+                "data": self.CODE_SEND,
                 "Message": message
             }
         }
@@ -128,6 +132,7 @@ class controller(object):
         data = {
             "result": {
                 "status": "success",
+                "data": self.CODE_SEND,
                 "Message": message
             }
         }
@@ -135,8 +140,34 @@ class controller(object):
         return json_string
         
 
+def main():
+    pass
+
 if __name__ == "__main__":
-    response = controller("s")
-     
-    print(response.RESPONSE)
+
+    pygame.init()
+    screen = pygame.display.set_mode((100, 100))
+
+    last_input = time.time();
+    running = True
+    while running:
+        later = time.time()
+        difference = int(later - last_input)
+        print(difference)
+        if difference > 10:
+            response = controller("b")
+            print(response.RESPONSE)
+            last_input = time.time()
+            pass
+        
+        for event in pygame.event.get():
+            # print(event)
+            if event.type == pygame.QUIT:
+                running = False
+            if event.type == pygame.KEYDOWN:
+                value = chr(event.key)
+                response = controller(value)
+                print(response.RESPONSE)
+               
+                    
     pass

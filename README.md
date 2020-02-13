@@ -1,3 +1,4 @@
 # AMR
 
 pyfiglet
+pygame
