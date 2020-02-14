@@ -25,7 +25,8 @@ class MyControllerServer:
         self.BUFFER_SIZE = buffer
         self.SERVER_NAME = server_name
         self.PC_NAME = socket.gethostname()
-        self.HOST = socket.gethostbyname(self.PC_NAME)
+        # self.HOST = socket.gethostbyname(self.PC_NAME)
+        self.HOST = self.get_ip_address()
         
         self.SOCKET.bind((self.HOST, 0))
         self.PORT = self.SOCKET.getsockname()[1]
@@ -50,7 +51,12 @@ class MyControllerServer:
         #Setting the threshold of logger to DEBUG 
         logger.setLevel(logging.DEBUG) 
         self.LOGGER = logger
-        
+
+    def get_ip_address(self):
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(("8.8.8.8", 80))
+        return s.getsockname()[0]
+
     def creatServer(self):
         try:
             result = pyfiglet.figlet_format(self.SERVER_NAME) 
@@ -97,12 +103,15 @@ class MyControllerServer:
             raise
         pass
 
+
 def main():
     controller = MyControllerServer(port=28280, buffer=1024)
     controller.creatServer()
     pass
 
 if __name__ == "__main__":
+    # print (get_ip_address())
+    # print (socket.gethostbyname(socket.gethostname()))
     while True:
         manager = multiprocessing.Manager()
         timer_return = manager.list()
