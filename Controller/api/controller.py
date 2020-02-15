@@ -101,7 +101,7 @@ class controller(object):
             if self.validate():
                 cod = self.CODE_SEND
                 # print(len(self.serial_ports()))
-                if len(self.serial_ports())>1:
+                if len(self.serial_ports()) >= 1:
                     self.SerialInput()
                     output = self.OutputGood(message="Data is accepted")
                 else :
