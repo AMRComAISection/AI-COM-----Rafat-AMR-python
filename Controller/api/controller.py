@@ -100,8 +100,13 @@ class controller(object):
         try:
             if self.validate():
                 cod = self.CODE_SEND
-                output = self.OutputGood(message="Data is accepted")
-                self.SerialInput()
+                # print(len(self.serial_ports()))
+                if len(self.serial_ports())>1:
+                    self.SerialInput()
+                    output = self.OutputGood(message="Data is accepted")
+                else :
+                     output = self.OutputError(message="Not found arduino")
+                
             
             else:
                 output = self.OutputError(message="Not find data into "+self.CURRENT_DIR + '/cntrl.json')
