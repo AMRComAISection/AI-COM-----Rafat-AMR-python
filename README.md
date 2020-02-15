@@ -12,4 +12,6 @@ https://www.pyimagesearch.com/2019/09/16/install-opencv-4-on-raspberry-pi-4-and-
 pip install opencv-python
 
 
-***SOME PROBLEM
+# SOME PROBLEMS
+
+1. AUTO PORT SELECTION LOGIC `getresponse()` function this function location is `/AMR/Controller/api/controller.py` 
