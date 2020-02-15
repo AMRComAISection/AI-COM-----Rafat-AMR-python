@@ -14,7 +14,7 @@ from PIL import Image
 import time
 
 
-HOST = '192.168.123.106'  # The server's hostname or IP address
+HOST = '192.168.123.101'  # The server's hostname or IP address
 PORT = 28280        # The port used by the server
 # a Python object (dict):
 x = {
@@ -31,13 +31,13 @@ print(type(sendData.encode('utf-8')))
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((HOST, PORT))
-    for x in range(100000):
-        # g = input ("Enter your name : ") 
+    for x in range(1):
+        g = input ("Enter your name : ") 
 
         seconds = time.time() 
         # sendData = jsonToString
-        # sendData = g
-        sendData = "w"
+        sendData = g
+        # sendData = "w"
         s.sendall(sendData.encode('utf-8'))
         data = s.recv(2048)
         seconds = time.time() - seconds 
