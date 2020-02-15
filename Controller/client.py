@@ -14,7 +14,7 @@ from PIL import Image
 import time
 
 
-HOST = '192.168.123.101'  # The server's hostname or IP address
+HOST = '192.168.123.106'  # The server's hostname or IP address
 PORT = 28280        # The port used by the server
 # a Python object (dict):
 x = {
