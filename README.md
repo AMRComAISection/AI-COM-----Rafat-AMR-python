@@ -14,4 +14,4 @@ pip install opencv-python
 
 # SOME PROBLEMS
 
-1. AUTO PORT SELECTION LOGIC `getresponse()` function this function location is `/AMR/Controller/api/controller.py` 
+1. AUTO PORT SELECTION LOGIC `getresponse()` - this function location is `/AMR/Controller/api/controller.py` 
