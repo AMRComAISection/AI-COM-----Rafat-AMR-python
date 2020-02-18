@@ -5,6 +5,9 @@ import logging
 import serial
 import pygame
 import time
+import multiprocessing
+import threading
+from datetime import datetime
 
 import serial.tools.list_ports
 
@@ -147,17 +150,89 @@ class controller(object):
         }
         json_string = json.dumps(data)
         return json_string
-        
 
-def main():
-    pass
 
-if __name__ == "__main__":
+class _Getch:
+    """Gets a single character from standard input.  Does not echo to the
+screen."""
+    def __init__(self):
+        try:
+            self.impl = _GetchWindows()
+        except ImportError:
+            self.impl = _GetchUnix()
 
+    def __call__(self): return self.impl()
+
+
+class _GetchUnix:
+    def __init__(self):
+        import sys, tty, termios
+
+    def __call__(self):
+        import sys, tty, termios
+        fd = sys.stdin.fileno()
+        old_settings = termios.tcgetattr(fd)
+        try:
+            tty.setraw(sys.stdin.fileno())
+            ch = sys.stdin.read(1)
+        finally:
+            termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+        return ch
+
+
+class _GetchWindows:
+    def __init__(self):
+        import msvcrt
+
+    def __call__(self):
+        import msvcrt
+        return msvcrt.getch()
+       
+
+class MyThread(threading.Thread): 
+  
+    # Thread class with a _stop() method.  
+    # The thread itself has to check 
+    # regularly for the stopped() condition. 
+    START_TIME = None
+    HOST = '192.168.123.101'  
+    PORT = 28280 
+    BREAK_CODE = "b"
+    BREAK_EXECTION_TIME = 10
+    
+  
+    def __init__(self, *args, **kwargs): 
+        super(MyThread, self).__init__(*args, **kwargs) 
+        self._stop = threading.Event() 
+  
+    # function using _stop function 
+    def stop(self): 
+        self._stop.set() 
+  
+    def stopped(self): 
+        return self._stop.isSet() 
+
+    def run(self): 
+        self.START_TIME = time.time()
+        while True: 
+            later = time.time()
+            difference = int(later - self.START_TIME)
+            if self.stopped(): 
+                return
+            if difference >= 1 and difference % self.BREAK_EXECTION_TIME == 0 :
+                response = controller(self.BREAK_CODE)
+                now = datetime.now()
+                print(str(now.strftime("%d-%m-%Y__%H:%M:%S"))+"---Auto Break Execute every "+str(difference)+" s") 
+                print(response.RESPONSE)
+                pass    
+            time.sleep(1)
+ 
+
+def main_pygame():
     pygame.init()
     screen = pygame.display.set_mode((100, 100))
 
-    last_input = time.time();
+    last_input = time.time()
     running = True
     while running:
         later = time.time()
@@ -179,4 +254,22 @@ if __name__ == "__main__":
                 response = controller(value)
                 print(response.RESPONSE)
                
+    pass
+def main_normal():
+    while True:
+        getch = _Getch()
+        t1 = MyThread() 
+        t1.start()
+        print ("Please enter a word: ")
+        x = getch()
+        response = controller(x.decode('utf-8'))
+        print(response.RESPONSE)
+        t1.stop()
+           
+    pass
+
+
+if __name__ == "__main__":
+    # main_pygame()
+    main_normal()
     pass
