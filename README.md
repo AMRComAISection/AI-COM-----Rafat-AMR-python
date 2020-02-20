@@ -2,7 +2,9 @@
 
 this pip depends on python version like (pip and pip3)
 
+### pyfiglet
 pip install pyfiglet
+### pygame 
 pip install pygame
 
 #### opencv setup :
