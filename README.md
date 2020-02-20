@@ -25,6 +25,9 @@ pip install opencv-python
 
 ### CAMERA
  
+ 
+# HOW TO RUN SSH CONNECTION 
+if you want please contact AMR Communication & AI team
 
 # SOME PROBLEMS
 
