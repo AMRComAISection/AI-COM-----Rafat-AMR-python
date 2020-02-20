@@ -13,7 +13,7 @@ https://www.pyimagesearch.com/2019/09/16/install-opencv-4-on-raspberry-pi-4-and-
 pip install opencv-python
 
 
-#RUN PROGRAMME FILE
+# RUN PROGRAMME FILE
  
 ### CONTROLLERS
 1. server.py 
