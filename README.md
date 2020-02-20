@@ -4,6 +4,8 @@ this pip depends on python version like (pip and pip3)
 
 ### pyfiglet
 pip install pyfiglet
+### pyserial 
+pip install pyserial
 ### pygame 
 pip install pygame
 
