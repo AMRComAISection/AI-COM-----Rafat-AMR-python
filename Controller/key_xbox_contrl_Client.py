@@ -46,7 +46,8 @@ def XBOXCount() :
 
 
 if __name__ == "__main__":
-    screen = pygame.display.set_mode((500, 500))
+    screen = pygame.display.set_mode((500, 250))
+    pygame.display.set_caption("Joystick Testing / XBOX360 Controller / Keyboard Testing")
     background = pygame.Surface(screen.get_size())
     background = background.convert()
     background.fill((255, 255, 255))
