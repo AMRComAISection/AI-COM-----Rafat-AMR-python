@@ -22,7 +22,7 @@ pip install opencv-python
 ### CONTROLLERS
 1. server.py 
 2. client.py
-3. https://github.com/martinohanlon/XboxController/blob/master/Xbox
+3. https://github.com/martinohanlon/XboxController
 
 ### CAMERA
  
