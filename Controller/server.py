@@ -82,8 +82,9 @@ class MyControllerServer:
         # self.HOST = socket.gethostbyname(self.PC_NAME)
         self.HOST = self.get_ip_address()
         
-        self.SOCKET.bind((self.HOST, 0))
-        self.PORT = self.SOCKET.getsockname()[1]
+        ''' not work in linux '''
+        # self.SOCKET.bind((self.HOST, 0))
+        # self.PORT = self.SOCKET.getsockname()[1]
 
         if port != 0:
             self.PORT = port
