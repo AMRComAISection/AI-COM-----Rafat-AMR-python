@@ -19,7 +19,7 @@ class MyThread(threading.Thread):
     START_TIME = None
     HOST = '192.168.123.101'  
     PORT = 28280 
-    BREAK_CODE = "b"
+    BREAK_CODE = "k"
     BREAK_EXECTION_TIME = 10
     
   
@@ -65,7 +65,7 @@ class MyThread(threading.Thread):
             
 class MyControllerServer:
     HOST = "localhost"
-    PORT = 2564
+    PORT = 28280
     MAC = ':'.join(re.findall('..', '%012x' % uuid.getnode()))
     SOCKET = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     SERVER_NAME = "No Name Server"

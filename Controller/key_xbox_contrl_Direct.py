@@ -48,9 +48,9 @@ def data_key_event(value,key_type):
     else :
         print("send = ", value," , type = ",key_type)
         key_stack.append(value)
-        # response = controller(value)
-        # print(response.RESPONSE)
-        dataSend(value)
+        response = controller(value)
+        print(response.RESPONSE)
+        # dataSend(value)
     # print(key_stack)
     pass
 

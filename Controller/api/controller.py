@@ -197,7 +197,7 @@ class MyThread(threading.Thread):
     START_TIME = None
     HOST = '192.168.123.101'  
     PORT = 28280 
-    BREAK_CODE = "b"
+    BREAK_CODE = "k"
     BREAK_EXECTION_TIME = 10
     
   
