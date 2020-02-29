@@ -8,6 +8,8 @@ pip install pyfiglet
 pip install pyserial
 ### pygame 
 pip install pygame
+### pynput 
+pip install pynput
 
 #### opencv setup :
 https://www.youtube.com/watch?v=xlmJsTeZL3w
