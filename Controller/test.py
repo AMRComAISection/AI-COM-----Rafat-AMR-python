@@ -1,7 +1,7 @@
 import os ,sys
 import glob
 import serial
-import msvcrt
+#import msvcrt
 from api.controller import controller
 from pynput import keyboard
 

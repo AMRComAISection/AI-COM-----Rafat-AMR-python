@@ -135,11 +135,19 @@ class MyControllerServer:
                 while True:
                     
                     soc.listen()
-                    t1 = MyThread() 
-                    t1.start()
+                    '''
+                        this two line use for the auto break instruction START
+                        t1 = MyThread()
+                        t1.start()
+
+                        this line use for the auto break instruction STOP
+                        # t1.stop()
+                    '''
+                    # t1 = MyThread() 
+                    # t1.start()
                    
                     conn, addr = soc.accept()
-                    t1.stop()
+                    # t1.stop()
                     with conn:
                         now = datetime.now()
                         print(str(now.strftime("%d-%m-%Y__%H-%M-%S")) +"---"+str(addr))

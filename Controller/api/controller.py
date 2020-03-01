@@ -255,16 +255,38 @@ def main_pygame():
                 print(response.RESPONSE)
                
     pass
+
+key_stack = [] 
+def data_key_event(value,key_type):
+    
+    val = ''
+    if key_stack:
+        val = key_stack.pop()
+        pass
+    if val == value:
+        
+        key_stack.append(val)
+        pass
+    else :
+        print("send = ", value," , type = ",key_type)
+        key_stack.append(value)
+        response = controller(value)
+        print(response.RESPONSE)
+        # dataSend(value)
+    # print(key_stack)
+    pass
+
 def main_normal():
     while True:
-        getch = _Getch()
-        t1 = MyThread() 
-        t1.start()
+        # getch = _Getch()
+        # t1 = MyThread() 
+        # t1.start()
         print ("Please enter a word: ")
-        x = getch()
-        response = controller(x.decode('utf-8'))
+        # x = getch()
+        x = input()
+        response = controller(x)
         print(response.RESPONSE)
-        t1.stop()
+        # t1.stop()
            
     pass
 
