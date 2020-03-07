@@ -4,13 +4,12 @@ import json
 import sys
 import os
 import cv2
-import cv2
 import base64
 # import matplotlib.pyplot as plt
 import numpy as nm
-import PIL
+# import PIL
 import io
-from PIL import Image
+# from PIL import Image
 import time
 
 
