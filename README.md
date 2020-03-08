@@ -76,7 +76,7 @@ log path :  c:\Users\rafat\My_Github\AMR\AMR\Controller/log/_SERVER_LOG_08-03-20
 
 
 3. Clone project in your computer
-4. Then goto project path and open `Controller\key_xbox_contrl_Client.py` file .Then change HOST variable which show after runing `server.py` in `raspberry pi` for example -
+4. Then goto project path and open `Controller\key_xbox_contrl_Client.py` file .Then change HOST variable which show after runing `server.py` in `raspberry pi` for example - ` HOST = '192.168.123.103'  `
 
 ```
 pygame 1.9.6
