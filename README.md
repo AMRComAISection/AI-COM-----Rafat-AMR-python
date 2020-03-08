@@ -30,6 +30,7 @@ pip install opencv-python
  
  
 # HOW TO RUN SSH CONNECTION 
+
 if you want please contact AMR Communication & AI team
 
 # SOME PROBLEMS
@@ -37,8 +38,10 @@ if you want please contact AMR Communication & AI team
 1. AUTO PORT SELECTION LOGIC `getresponse()` - this function location is `/AMR/Controller/api/controller.py` 
 
 
-# HOW TO CONNECT
+# HOW TO WORK
+
 1. Install all the required package
+
 2. In `raspberry pi` run `Controller\server.py` after running you can see this type of window -
 
 ```
@@ -74,10 +77,9 @@ buffer size :  1024
 log path :  c:\Users\rafat\My_Github\AMR\AMR\Controller/log/_SERVER_LOG_08-03-2020__16-22-58.log
 ```
 
-
 3. Clone project in your computer
-4. Then goto project path and open `Controller\key_xbox_contrl_Client.py` file .Then change HOST variable which show after runing `server.py` in `raspberry pi` for example - ` HOST = '192.168.123.103'  `
 
+4. Then goto project path and open `Controller\key_xbox_contrl_Client.py` file .Then change HOST variable which show after runing `server.py` in `raspberry pi` for example - ` HOST = '192.168.123.103'  `
 
 5. Then save the file and run `Controller\key_xbox_contrl_Client.py` with python 
 
