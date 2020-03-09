@@ -49,13 +49,6 @@ class SerialMonitor(object):
         if SerialMonitor.__instance == None:
             SerialMonitor()
         return SerialMonitor.__instance
-        # ports = SerialMonitor.serial_ports()
-        # if len(ports) >= 1:
-        #     if SerialMonitor.SERIAL_SELECTED_OPEN == None:
-        #         SerialMonitor.SERIAL_SELECTED_OPEN = serial.Serial(ports[0], 9600)
-        #     return SerialMonitor.__instance
-        # else:
-        #     print("Can not find arduino")
 
 
     def read_write(self,data="w"):
